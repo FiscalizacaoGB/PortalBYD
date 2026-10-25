@@ -371,52 +371,6 @@ button:disabled { opacity: .6; cursor: wait; }
   padding: 10px;
 }
 
-/* MODAL QR CODE */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(11,37,69,.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  z-index: 10;
-}
-
-.modal-box {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 360px;
-  width: 100%;
-  text-align: center;
-  border-top: 5px solid var(--azul);
-}
-
-.modal-box h3 { margin: 0 0 6px; color: var(--azul); }
-.modal-box p { font-size: 14px; margin: 6px 0 12px; }
-
-.modal-box img {
-  width: 220px;
-  max-width: 100%;
-  image-rendering: pixelated;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 8px;
-}
-
-.modal-box a.link {
-  display: block;
-  margin: 12px 0;
-  padding: 10px;
-  background: var(--cinza);
-  border-radius: 8px;
-  color: var(--azul);
-  font-weight: bold;
-  word-break: break-all;
-  font-size: 13px;
-}
-
 footer {
   text-align: center;
   font-size: 12px;
@@ -452,6 +406,679 @@ header { position: relative; }
 @media (max-width: 480px) {
   header { padding-top: 38px; }
 }
+
+/* ATENDIMENTO */
+.menu .btn-at { background: #b26a00; }
+
+body.tema-at .selo span { background: #b26a00; }
+
+.fade { animation: aparecer .25s ease-out; }
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.campo { margin-bottom: 12px; }
+
+.campo label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--azul);
+  margin-bottom: 4px;
+}
+
+.campo label small {
+  font-weight: normal;
+  color: #6b7280;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 0;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  font-family: inherit;
+  background: #fff;
+}
+
+.campo textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.campo select:focus,
+.campo textarea:focus {
+  outline: 2px solid var(--azul-claro);
+  border-color: var(--azul-claro);
+}
+
+.campo.erro input,
+.campo.erro select,
+.campo.erro textarea {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.dica {
+  font-size: 12px;
+  color: #6b7280;
+  margin: -2px 0 6px;
+}
+
+.contador {
+  text-align: right;
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 3px;
+}
+
+.loc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.loc input { flex: 1 1 180px; }
+.loc .btn-sec { flex: 1 1 auto; }
+
+.btn-sec {
+  width: auto;
+  white-space: nowrap;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: #e5e7eb;
+  color: var(--azul);
+}
+
+.loc-ok {
+  font-size: 12px;
+  color: #15803d;
+  margin-top: 4px;
+}
+
+.isca { position: absolute; left: -9999px; }
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 3px solid rgba(255,255,255,.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: girar .8s linear infinite;
+  vertical-align: -3px;
+  margin-right: 6px;
+}
+
+@keyframes girar { to { transform: rotate(360deg); } }
+
+.sucesso {
+  text-align: center;
+  background: #ecf8f0;
+  border: 1px solid #b7e4c7;
+  border-radius: 12px;
+  padding: 20px 16px;
+}
+
+.sucesso .check { font-size: 40px; }
+
+.sucesso h3 {
+  margin: 6px 0;
+  color: #0f5f37;
+}
+
+.protocolo {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--azul);
+  background: #fff;
+  border: 2px dashed var(--azul-claro);
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin: 10px 0;
+}
+
+.sucesso p { font-size: 14px; margin: 6px 0 12px; }
+
+.sucesso .acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recentes {
+  margin: 4px 0 14px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.chips button {
+  width: auto;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  background: var(--cinza);
+  color: var(--azul);
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+}
+
+#campoProtocolo {
+  text-transform: uppercase;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.status {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.status.recebido { background: #6b7280; }
+.status.andamento { background: #d97706; }
+.status.finalizado { background: #15803d; }
+
+.chamado-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chamado-topo h3 {
+  margin: 0;
+  font-family: "Courier New", monospace;
+}
+
+/* LINHA DO TEMPO DO CHAMADO */
+.etapas {
+  display: flex;
+  margin: 16px 0 6px;
+}
+
+.etapa {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  position: relative;
+}
+
+.etapa .bola {
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  margin: 0 auto 4px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #6b7280;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+
+.etapa::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: -50%;
+  width: 100%;
+  height: 3px;
+  background: #e5e7eb;
+}
+
+.etapa:first-child::before { display: none; }
+
+.etapa.feita { color: var(--azul); font-weight: bold; }
+.etapa.feita .bola { background: #15803d; color: #fff; }
+.etapa.feita::before { background: #15803d; }
+
+.bloco {
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 10px;
+}
+
+.bloco h4 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: var(--azul);
+  text-transform: uppercase;
+}
+
+.bloco p { margin: 5px 0; }
+
+.descricao { white-space: pre-wrap; }
+
+.pendente { color: #6b7280; font-style: italic; }
+
+/* ÍCONES */
+.ic {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  vertical-align: -4px;
+}
+
+button .ic { margin-right: 6px; }
+button .ic:last-child:not(:first-child) { margin: 0 0 0 6px; }
+
+.menu .ico {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.menu .ico .ic { width: 26px; height: 26px; margin: 0; }
+
+.menu button {
+  transition: transform .15s, box-shadow .15s;
+}
+
+.menu button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(11,37,69,.25);
+}
+
+.selo span { display: inline-flex; align-items: center; gap: 6px; }
+.selo span .ic { width: 15px; height: 15px; }
+
+.card .hora { display: inline-flex; align-items: center; gap: 8px; }
+.card a.maps { display: flex; align-items: center; justify-content: center; gap: 6px; }
+
+/* FORMULÁRIO EM ETAPAS */
+.wiz-topo { margin: 4px 0 18px; }
+
+.wiz-passos {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.wiz-passo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #9ca3af;
+  font-weight: bold;
+}
+
+.wiz-passo .n {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  transition: background .3s, color .3s;
+}
+
+.wiz-passo .n .ic { width: 15px; height: 15px; margin: 0; }
+.wiz-passo.ativo { color: var(--azul); }
+.wiz-passo.ativo .n { background: var(--azul); color: #fff; box-shadow: 0 0 0 4px rgba(13,47,82,.12); }
+.wiz-passo.feito { color: #15803d; }
+.wiz-passo.feito .n { background: #15803d; color: #fff; }
+
+.wiz-barra {
+  height: 4px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.wiz-barra div {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--azul), var(--azul-claro));
+  border-radius: 4px;
+  transition: width .4s ease;
+}
+
+.wiz.entrar { animation: entrar .3s ease-out; }
+
+@keyframes entrar {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+.wiz-titulo {
+  margin: 0 0 4px;
+  color: var(--azul);
+  font-size: 19px;
+}
+
+.wiz-sub {
+  margin: 0 0 14px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.wiz-nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.wiz-nav button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wiz-nav .btn-sec { flex: 0 0 auto; padding: 12px 16px; }
+.wiz-nav button:not(.btn-sec) { flex: 1; }
+
+/* CARDS DE MOTIVO */
+.tipos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tipo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  background: #fff;
+  color: #1f2937;
+  border: 2px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 12px;
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+
+.tipo:hover {
+  border-color: var(--cor);
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  transform: translateY(-1px);
+}
+
+.tipo.sel {
+  border-color: var(--cor);
+  background: var(--fundo);
+}
+
+.tipo-ic {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: var(--cor);
+  background: var(--fundo);
+}
+
+.tipo-ic .ic { width: 24px; height: 24px; margin: 0; }
+
+.tipo-txt { flex: 1; min-width: 0; }
+
+.tipo-txt strong {
+  display: block;
+  font-size: 15px;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.tipo-txt small {
+  display: block;
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.3;
+}
+
+.tipo-seta { color: #9ca3af; }
+.tipo-seta .ic { margin: 0; }
+.tipo.sel .tipo-seta { color: var(--cor); }
+
+.tipo-escolhido {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  background: var(--fundo);
+  border: 1px solid var(--cor);
+}
+
+.tipo-escolhido .tipo-ic { width: 34px; height: 34px; border-radius: 10px; }
+.tipo-escolhido .tipo-ic .ic { width: 19px; height: 19px; }
+
+.tipo-escolhido-txt {
+  flex: 1;
+  font-size: 14px;
+  font-weight: bold;
+  color: #111827;
+}
+
+.tipo-escolhido-txt small {
+  display: block;
+  font-weight: normal;
+  font-size: 11px;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+.tipo-escolhido button,
+.resumo-topo button {
+  width: auto;
+  padding: 4px 10px;
+  font-size: 13px;
+  background: transparent;
+  color: var(--azul);
+  text-decoration: underline;
+}
+
+/* CAMPOS COM ÍCONE */
+.com-ic { position: relative; }
+
+.com-ic .ic {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  pointer-events: none;
+  width: 18px;
+  height: 18px;
+}
+
+.campo .com-ic input { padding-left: 40px; }
+.campo.erro .com-ic .ic { color: #dc2626; }
+.campo .com-ic input:focus + .ic,
+.com-ic:focus-within .ic { color: var(--azul); }
+
+.campo.tremer { animation: tremer .35s; }
+
+@keyframes tremer {
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.btn-loc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: var(--azul);
+  border: 2px solid var(--azul-claro);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.btn-loc.buscando .ic { animation: girar 1s linear infinite; }
+
+.loc-ok {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: bold;
+}
+
+.loc-ok .ic { width: 15px; height: 15px; }
+
+.ou {
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ou::before,
+.ou::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+/* RESUMO ANTES DE ENVIAR */
+.resumo {
+  background: var(--cinza);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.resumo-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  color: var(--azul);
+}
+
+.resumo div:not(.resumo-topo) {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 4px 0;
+  color: #374151;
+}
+
+.resumo div .ic { width: 16px; height: 16px; color: #6b7280; margin-top: 1px; }
+
+.btn-enviar.enviando .ic { animation: voar .8s ease-in-out infinite; }
+
+@keyframes voar {
+  50% { transform: translate(3px, -3px); }
+}
+
+/* SUCESSO */
+.sucesso {
+  animation: aparecer .3s ease-out;
+}
+
+.check-anim {
+  width: 72px;
+  height: 72px;
+  display: block;
+  margin: 0 auto 4px;
+}
+
+.check-anim circle {
+  stroke: #15803d;
+  stroke-width: 3;
+  stroke-dasharray: 151;
+  stroke-dashoffset: 151;
+  animation: tracar .6s ease-out forwards;
+}
+
+.check-anim path {
+  stroke: #15803d;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 34;
+  stroke-dashoffset: 34;
+  animation: tracar .35s .5s ease-out forwards;
+}
+
+@keyframes tracar { to { stroke-dashoffset: 0; } }
+
+.protocolo { animation: pulsar 1.2s .8s ease-in-out 2; }
+
+@keyframes pulsar {
+  50% { transform: scale(1.05); }
+}
+
+.acoes-linha { display: flex; gap: 8px; }
+
+.acoes-linha button,
+.sucesso .acoes > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.acoes-linha button { flex: 1; }
+.acoes-linha button.ok { background: #dcfce7; color: #15803d; }
+
+.link-btn {
+  background: transparent;
+  color: var(--azul);
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.etapa .bola { display: flex; align-items: center; justify-content: center; }
+.etapa .bola .ic { width: 15px; height: 15px; margin: 0; }
+
+.chamado-tipo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 8px;
+  font-weight: bold;
+  color: #111827;
+}
+
+.chamado-tipo .tipo-ic { width: 34px; height: 34px; border-radius: 10px; }
+.chamado-tipo .tipo-ic .ic { width: 19px; height: 19px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .check-anim circle, .check-anim path { stroke-dashoffset: 0; }
+}
 </style>
 </head>
 
@@ -482,12 +1109,16 @@ header { position: relative; }
     <p class="intro" data-t="escolha"></p>
     <div class="menu">
       <button class="btn-roteiro" onclick="irPara('roteiros')">
-        <span class="ico">🚌</span>
+        <span class="ico"><i data-ic="bus"></i></span>
         <span><span data-t="btnRoteiro"></span><small data-t="btnRoteiroSub"></small></span>
       </button>
       <button class="btn-he" onclick="irPara('hora-extra')">
-        <span class="ico">⏱️</span>
+        <span class="ico"><i data-ic="clock"></i></span>
         <span><span data-t="btnHE"></span><small data-t="btnHESub"></small></span>
+      </button>
+      <button class="btn-at" onclick="irPara('atendimento')">
+        <span class="ico"><i data-ic="msg"></i></span>
+        <span><span data-t="btnAt"></span><small data-t="btnAtSub"></small></span>
       </button>
     </div>
   </div>
@@ -504,7 +1135,7 @@ header { position: relative; }
 
     <p class="intro" id="introConsulta"></p>
 
-    <div class="tabs">
+    <div class="tabs" id="tabsConsulta">
       <button class="active" onclick="trocarAba('nome')" data-t="abaNome"></button>
       <button onclick="trocarAba('email')" data-t="abaEmail"></button>
     </div>
@@ -525,29 +1156,191 @@ header { position: relative; }
     <div id="resultado"></div>
   </div>
 
-  <button class="btn-ajuda" onclick="abrirAjuda()" data-t="ajuda"></button>
+  <!-- TELA DE ATENDIMENTO -->
+  <div id="tela-atendimento" class="hidden">
+
+    <div class="selo">
+      <span><i data-ic="msg"></i><b data-t="seloAt"></b></span>
+      <button onclick="irPara('inicio')" data-t="inicio"></button>
+    </div>
+
+    <div class="tabs" id="tabsAt">
+      <button class="active" onclick="trocarAbaAt('abrir')" data-t="abaAbrir"></button>
+      <button onclick="trocarAbaAt('consultar')" data-t="abaConsultar"></button>
+    </div>
+
+    <!-- ABRIR CHAMADO -->
+    <div id="at-abrir">
+      <form id="formChamado" onsubmit="enviarChamado(event)" novalidate>
+
+        <!-- PROGRESSO -->
+        <div class="wiz-topo">
+          <div class="wiz-passos">
+            <div class="wiz-passo" data-p="1"><span class="n">1</span><span class="rot" data-t="passo1"></span></div>
+            <div class="wiz-passo" data-p="2"><span class="n">2</span><span class="rot" data-t="passo2"></span></div>
+            <div class="wiz-passo" data-p="3"><span class="n">3</span><span class="rot" data-t="passo3"></span></div>
+          </div>
+          <div class="wiz-barra"><div id="wizBarra"></div></div>
+        </div>
+
+        <!-- PASSO 1: MOTIVO -->
+        <section class="wiz" data-p="1">
+          <h3 class="wiz-titulo" data-t="p1Titulo"></h3>
+          <p class="wiz-sub" data-t="p1Sub"></p>
+          <div class="tipos" id="tipos" role="radiogroup"></div>
+        </section>
+
+        <!-- PASSO 2: DADOS -->
+        <section class="wiz hidden" data-p="2">
+          <div class="tipo-escolhido" data-escolhido></div>
+          <h3 class="wiz-titulo" data-t="p2Titulo"></h3>
+
+          <div class="campo" id="c-nome">
+            <label for="fNome" data-t="lNome"></label>
+            <div class="com-ic"><i data-ic="user"></i><input type="text" id="fNome" autocomplete="name" maxlength="120"></div>
+          </div>
+
+          <div class="campo" id="c-roteiro">
+            <label for="fRoteiro" data-t="lRoteiro"></label>
+            <div class="com-ic"><i data-ic="bus"></i><input type="text" id="fRoteiro" maxlength="120"></div>
+          </div>
+
+          <div class="campo" id="c-telefone">
+            <label for="fTelefone" data-t="lTelefone"></label>
+            <div class="com-ic"><i data-ic="phone"></i><input type="tel" id="fTelefone" autocomplete="tel" inputmode="tel" maxlength="16" placeholder="(71) 99999-9999"></div>
+            <div class="dica" data-t="dTelefone"></div>
+          </div>
+
+          <div class="campo" id="c-endereco">
+            <label for="fEndereco" data-t="lEndereco"></label>
+            <div class="com-ic"><i data-ic="home"></i><input type="text" id="fEndereco" autocomplete="street-address" maxlength="250"></div>
+            <div class="dica" data-t="dEndereco"></div>
+          </div>
+
+          <div class="campo" id="c-localizacao">
+            <label for="fLocalizacao" data-t="lLocalizacao"></label>
+            <button type="button" class="btn-loc" id="btnLoc" onclick="usarLocalizacao()">
+              <i data-ic="crosshair"></i><span id="btnLocTxt" data-t="usarLoc"></span>
+            </button>
+            <div class="loc-ok hidden" id="locOk"><i data-ic="check"></i><span data-t="locOk"></span></div>
+            <div class="ou"><span data-t="ouCole"></span></div>
+            <div class="com-ic"><i data-ic="link"></i><input type="url" id="fLocalizacao" maxlength="500" placeholder="https://maps.app.goo.gl/..."></div>
+          </div>
+
+          <div class="wiz-nav">
+            <button type="button" class="btn-sec" onclick="irPasso(1)"><i data-ic="back"></i><span data-t="voltar"></span></button>
+            <button type="button" onclick="avancar()"><span data-t="continuar"></span><i data-ic="chev"></i></button>
+          </div>
+          <div class="msg-passo" id="msgP2"></div>
+        </section>
+
+        <!-- PASSO 3: DETALHES -->
+        <section class="wiz hidden" data-p="3">
+          <div class="tipo-escolhido" data-escolhido></div>
+          <h3 class="wiz-titulo" data-t="p3Titulo"></h3>
+
+          <div class="campo" id="c-descricao">
+            <label for="fDescricao" data-t="lDescricao"></label>
+            <textarea id="fDescricao" maxlength="1000"></textarea>
+            <div class="contador"><span id="contador">0</span>/1000</div>
+          </div>
+
+          <div class="resumo" id="resumo"></div>
+
+          <!-- campo invisível contra robôs -->
+          <input type="text" id="fSite" class="isca" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="wiz-nav">
+            <button type="button" class="btn-sec" onclick="irPasso(2)"><i data-ic="back"></i><span data-t="voltar"></span></button>
+            <button type="submit" id="btnEnviar" class="btn-enviar"><i data-ic="send"></i><span id="btnEnviarTxt" data-t="enviar"></span></button>
+          </div>
+          <div class="msg-passo" id="msgAbrir"></div>
+        </section>
+      </form>
+
+      <div id="sucessoChamado" class="hidden"></div>
+    </div>
+
+    <!-- CONSULTAR ATENDIMENTO -->
+    <div id="at-consultar" class="hidden">
+      <p class="intro" data-t="introConsultar"></p>
+      <input type="text" id="campoProtocolo" maxlength="20" autocomplete="off" placeholder="BYD261024-XXXX">
+      <button id="btnConsultarAt" onclick="consultarChamado()" data-t="consultar"></button>
+      <div id="recentes" class="recentes hidden">
+        <span data-t="recentes"></span>
+        <div class="chips" id="chips"></div>
+      </div>
+      <div id="resultadoAt"></div>
+    </div>
+  </div>
+
+  <button class="btn-ajuda" id="btnAjuda" onclick="abrirAjuda()" data-t="ajuda"></button>
 
 </div>
 
 <footer>Grupo Brasileiro · Cidade Sol</footer>
 
-<!-- MODAL ATENDIMENTO -->
-<div id="modalAjuda" class="modal hidden" onclick="if (event.target === this) fecharAjuda()">
-  <div class="modal-box">
-    <h3 data-t="atendimento"></h3>
-    <p data-t="atendimentoTexto"></p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYgAAAGIAQAAAABzOEqLAAACfUlEQVR42u1cMW7EMAwT+v8/q8DFIikPBW4Il9K35BrnBhEySUlp9ber8kSe+E9P1LOeyz6XdX7tudWFXf1T36488cUaEAvQPCh8/nZgaNkVPN7H44S8mQkPJIUvsivRNeHx+QwIDzY8tYKHPz+GPHgPDBI8/PxB7j6JMSlTlArBw4AHM+CvT/SVCQ9I3xIJPOx+mERWomvgjwZxHGgmZ3BWzcbgYcgP5Ano/AS/C6lytFfwcJxXkygNpUsTKFfBw8Ln4wTF9w0ukFk9VZRE933+uB16i0GE9I3edfJ5w/RNDUsFV/NwS3QdfI7S8FQSYdmhrc6WRPdtPJgR2xw2MRGtlei+z+cSe+mLTBGlVQAHj/fzg/2OgWZ0LxUwPEqi6zivhh5oBjV9VGsluob8GJHFNqFSeAOt4OHQu5Szw+v6dWVL8PD4QdW4xQoiiIXskug6+Fy6hNuak10OTomuBY9eXfRiP0TOtPCHq15yZFXJdAkutB0SPBz1kpISovrDurxh/IdJX53saDmZ9qRixQ8682MEVWnXtpg36IaEzy3+nBXe6j2/wMG42Z3oGvicwnaJLBlanJvBw5EfMt3Orq0OwqVfa623a839InZWr6KvnPlBC46jqa8TLXiY8NCxH1S0SCoysBg8DHqXMyY64946L4oKV/Aw5Yd6jL7G3KG3gofJn7c4cJgNKF55FSF4OM4rcenKGfslqfC5Se/WlKpkDrF6j/RW8HC/X7ve3lxVdhW/ia6hXiIvnLOoWMokUFqJrgmP4qwVeoN8VQ0jD4muCw8M/bDYvkpXqV9Z+YNtKel6CCadeQa/vlJCX+Wryvyu2X/kf+/kiTxxrV8AC59mA/gHdQAAAABJRU5ErkJggg==" alt="QR Code">
-    <a class="link" id="linkAtendimento" target="_blank" rel="noopener" data-t="abrirAtendimento"></a>
-    <button onclick="fecharAjuda()" data-t="fechar"></button>
-  </div>
-</div>
-
 <script>
 /* Cole aqui a URL do Web App publicado no Apps Script (termina em /exec) */
-const API_URL = "https://script.google.com/macros/s/AKfycbxlaICeFIas-kUecB4SCtBIadZwIXfTTrX65xjXmRq2gG3WS2ug_8-p09DvBBFKOial/exec";
+const API_URL = "COLE_AQUI_A_URL_DO_APPS_SCRIPT";
 
-/* Link contido no QR Code de atendimento */
-const LINK_ATENDIMENTO = "https://docs.google.com/forms/d/e/1FAIpQLSdvnTSc2m1J73a531QqvGYkLQWR59N8PRaIQWizEJ94OOLvFw/viewform?usp=dialog";
+/* Opções de "Qual é a sua solicitação?".
+   "valor" é exatamente o texto que vai para a planilha (igual ao Google Forms).
+   Na tela aparecem o ícone, o título e a descrição no idioma escolhido. */
+const TIPOS_SOLICITACAO = [
+  { valor: "📍 Meu ponto de embarque está acima da distância permitida", icone: "route", cor: "#2563eb", fundo: "#eff6ff",
+    pt: ["Meu ponto está muito longe", "A distância até o ponto de embarque passa do permitido"],
+    en: ["My stop is too far", "The distance to my boarding stop is over the allowed limit"],
+    zh: ["上车点太远", "到上车点的距离超出允许范围"] },
+  { valor: "📍Tenho uma dúvida sobre o meu local de embarque", icone: "pinq", cor: "#7c3aed", fundo: "#f5f3ff",
+    pt: ["Dúvida sobre o local de embarque", "Não sei onde fica ou como chegar ao meu ponto"],
+    en: ["Question about my boarding location", "Not sure where my stop is or how to get there"],
+    zh: ["上车地点疑问", "不清楚站点位置或如何到达"] },
+  { valor: "🚌 Não localizei meu roteiro de transporte", icone: "bus", cor: "#0891b2", fundo: "#ecfeff",
+    pt: ["Não encontrei meu roteiro", "Meu nome não aparece na consulta de roteiros"],
+    en: ["I can't find my route", "My name doesn't show up in the route search"],
+    zh: ["找不到我的路线", "在路线查询中找不到我的名字"] },
+  { valor: "⏰ Tenho dúvida sobre o horário de embarque", icone: "clock", cor: "#d97706", fundo: "#fffbeb",
+    pt: ["Dúvida sobre o horário", "Quero confirmar ou entender meu horário de embarque"],
+    en: ["Question about the time", "I want to confirm or understand my boarding time"],
+    zh: ["上车时间疑问", "我想确认或了解我的上车时间"] },
+  { valor: "❓ Outra solicitação", icone: "msgq", cor: "#475569", fundo: "#f1f5f9",
+    pt: ["Outra solicitação", "Qualquer outro assunto sobre o transporte"],
+    en: ["Other request", "Anything else about the transport"],
+    zh: ["其他需求", "关于班车的其他任何问题"] }
+];
+
+/* Ícones (traço, estilo linha) usados no site */
+const ICONES = {
+  bus: '<path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/>',
+  clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  msg: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+  msgq: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>',
+  route: '<circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/>',
+  pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+  pinq: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><path d="M10 8.5a2 2 0 1 1 2.8 1.8c-.5.3-.8.7-.8 1.2"/><path d="M12 14.5h.01"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  chev: '<path d="m9 18 6-6-6-6"/>',
+  back: '<path d="m15 18-6-6 6-6"/>',
+  user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+  phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/>',
+  home: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/>',
+  crosshair: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/>',
+  link: '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
+  send: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+  copy: '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
+  share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/>',
+  search: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>'
+};
+
+function ic(nome) {
+  return `<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONES[nome] || ""}</svg>`;
+}
+
+/* Troca os <i data-ic="..."> do HTML pelos ícones */
+function pintarIcones() {
+  document.querySelectorAll("i[data-ic]").forEach(i => { i.outerHTML = ic(i.dataset.ic); });
+}
 
 /* TEXTOS DA PÁGINA EM CADA IDIOMA (os dados da planilha não são traduzidos) */
 const TEXTOS = {
@@ -555,15 +1348,20 @@ const TEXTOS = {
     htmlLang: "pt-BR",
     tituloPagina: "Informações de Embarque BYD",
     tituloPaginaHE: "Horas Extras BYD",
+    tituloPaginaAt: "Atendimento BYD",
     hero: 'Informações de <span>Embarque <b>BYD</b></span>',
     heroHE: 'Consulta de <span>Horas Extras <b>BYD</b></span>',
+    heroAt: 'Central de <span>Atendimento <b>BYD</b></span>',
     escolha: "Escolha o tipo de consulta:",
     btnRoteiro: "Consulta Roteiros Diários",
     btnRoteiroSub: "Sua linha, ponto e horário de todo dia",
     btnHE: "Consulta Horas Extras",
     btnHESub: "Embarque nos dias de hora extra",
-    selo: "🚌 Roteiro Diário",
-    seloHE: "⏱️ Hora Extra",
+    btnAt: "Atendimento",
+    btnAtSub: "Abra um chamado ou consulte pelo protocolo",
+    selo: "Roteiro Diário",
+    seloHE: "Hora Extra",
+    seloAt: "Atendimento",
     inicio: "← Início",
     avisoHE: "Você está consultando o <strong>roteiro de HORA EXTRA</strong>. Os horários e pontos podem ser diferentes do seu roteiro diário.",
     intro: "Consulte sua <strong>linha, ponto e horário de embarque</strong>.",
@@ -576,8 +1374,8 @@ const TEXTOS = {
     carregando: "Carregando...",
     min3: "Digite ao menos 3 letras do seu nome.",
     emailInvalido: "Digite um e-mail válido.",
-    nada: 'Nenhum passageiro encontrado. Confira o que digitou ou clique em <strong>"Não encontrou seus dados?"</strong> abaixo.',
-    nadaHE: 'Nenhuma hora extra encontrada para esse passageiro. Se você foi convocado, clique em <strong>"Não encontrou seus dados?"</strong> abaixo.',
+    nada: 'Nenhum passageiro encontrado. Confira o que digitou ou clique em <strong>"Não encontrou seus dados?"</strong> abaixo para abrir um chamado.',
+    nadaHE: 'Nenhuma hora extra encontrada para esse passageiro. Se você foi convocado, clique em <strong>"Não encontrou seus dados?"</strong> abaixo para abrir um chamado.',
     erroConexao: "Não foi possível consultar agora. Tente novamente em instantes.",
     encontrados: "Encontramos {n} passageiros. Selecione o seu:",
     mostrando: "Mostrando {a} de {b}. Digite mais do seu nome para refinar.",
@@ -588,27 +1386,95 @@ const TEXTOS = {
     referencia: "Ponto de Referência",
     endereco: "Endereço da Parada",
     email: "E-mail",
-    maps: "📍 Ver parada no Google Maps",
+    maps: "Ver parada no Google Maps",
     voltarOpcoes: "← Voltar para as opções",
     ajuda: "Não encontrou seus dados? Clique aqui",
-    atendimento: "Atendimento",
-    atendimentoTexto: "Aponte a câmera do seu celular para o QR Code ou clique no link abaixo.",
-    abrirAtendimento: "Abrir atendimento",
-    fechar: "Fechar"
+    abaAbrir: "Abrir chamado",
+    abaConsultar: "Consultar atendimento",
+    introAbrir: "Preencha os dados abaixo. Ao enviar, você recebe um <strong>número de protocolo</strong> para acompanhar o atendimento.",
+    lTipo: "Qual é a sua solicitação?",
+    selecione: "Selecione...",
+    passo1: "Motivo",
+    passo2: "Seus dados",
+    passo3: "Detalhes",
+    p1Titulo: "Como podemos ajudar?",
+    p1Sub: "Escolha o motivo do seu contato.",
+    p2Titulo: "Seus dados para contato",
+    p3Titulo: "Conte o que aconteceu",
+    voltar: "Voltar",
+    continuar: "Continuar",
+    trocar: "Trocar",
+    editar: "Editar",
+    ouCole: "ou cole o link do Google Maps",
+    locAnexada: "Localização anexada",
+    resumoTitulo: "Confira seus dados",
+    compartilhar: "Compartilhar",
+    textoCompartilhar: "Meu protocolo de atendimento BYD: {p}",
+    lNome: "Nome completo",
+    lRoteiro: "Roteiro <small>(se souber)</small>",
+    phRoteiro: "Ex.: Linha 01 - Camaçari",
+    dTelefone: "Informe um número de telefone/WhatsApp para contato.",
+    dEndereco: "Rua/Avenida, número, complemento, bairro, cidade e CEP.",
+    dLocalizacao: "Envie o link da localização da sua residência pelo Google Maps.",
+    roteiro: "Roteiro",
+    lTelefone: "Telefone de contato",
+    lEndereco: "Endereço completo da residência",
+    lLocalizacao: "Localização da residência <small>(opcional)</small>",
+    usarLoc: "Usar minha localização",
+    buscandoLoc: "Localizando...",
+    locOk: "Localização preenchida",
+    locErro: "Não foi possível obter sua localização. Cole o link do Google Maps manualmente.",
+    lDescricao: "Descreva sua solicitação",
+    enviar: "Enviar chamado",
+    enviando: "Enviando...",
+    corrija: "Preencha os campos destacados em vermelho.",
+    erroEnvio: "Não foi possível enviar agora. Tente novamente em instantes.",
+    sucessoTitulo: "Chamado registrado!",
+    sucessoTexto: "Guarde este número de protocolo para acompanhar seu atendimento:",
+    copiar: "Copiar protocolo",
+    copiado: "Copiado!",
+    acompanhar: "Acompanhar este chamado",
+    novoChamado: "Abrir outro chamado",
+    introConsultar: "Digite o <strong>número de protocolo</strong> que você recebeu ao abrir o chamado.",
+    consultar: "Consultar",
+    recentes: "Chamados abertos neste aparelho:",
+    protocoloInvalido: "Digite o número de protocolo completo.",
+    protocoloNaoEncontrado: "Nenhum chamado encontrado com esse protocolo. Confira o número digitado.",
+    status_recebido: "Recebido",
+    status_andamento: "Em atendimento",
+    status_finalizado: "Finalizado",
+    etapa1: "Recebido",
+    etapa2: "Em atendimento",
+    etapa3: "Finalizado",
+    blocoChamado: "Seu chamado",
+    blocoAtendimento: "Atendimento",
+    aberto: "Aberto em",
+    solicitacao: "Solicitação",
+    nomeChamado: "Nome",
+    descricao: "Descrição",
+    atendente: "Atendido por",
+    providencia: "Providência",
+    finalizadoEm: "Finalizado em",
+    aguardando: "Aguardando atendimento da nossa equipe."
   },
   en: {
     htmlLang: "en",
     tituloPagina: "BYD Boarding Information",
     tituloPaginaHE: "BYD Overtime",
+    tituloPaginaAt: "BYD Support",
     hero: 'Boarding <span>Information <b>BYD</b></span>',
     heroHE: 'Overtime <span>Transport <b>BYD</b></span>',
+    heroAt: 'Support <span>Center <b>BYD</b></span>',
     escolha: "Choose what you want to look up:",
     btnRoteiro: "Daily Routes",
     btnRoteiroSub: "Your everyday route, stop and time",
     btnHE: "Overtime Routes",
     btnHESub: "Boarding on overtime days",
-    selo: "🚌 Daily Route",
-    seloHE: "⏱️ Overtime",
+    btnAt: "Support",
+    btnAtSub: "Open a request or track it by protocol number",
+    selo: "Daily Route",
+    seloHE: "Overtime",
+    seloAt: "Support",
     inicio: "← Home",
     avisoHE: "You are viewing the <strong>OVERTIME route</strong>. Times and stops may differ from your daily route.",
     intro: "Find your <strong>route, stop and boarding time</strong>.",
@@ -621,8 +1487,8 @@ const TEXTOS = {
     carregando: "Loading...",
     min3: "Type at least 3 letters of your name.",
     emailInvalido: "Please enter a valid email.",
-    nada: 'No passenger found. Check what you typed or click <strong>"Can\'t find your details?"</strong> below.',
-    nadaHE: 'No overtime found for this passenger. If you were scheduled, click <strong>"Can\'t find your details?"</strong> below.',
+    nada: 'No passenger found. Check what you typed or click <strong>"Can\'t find your details?"</strong> below to open a request.',
+    nadaHE: 'No overtime found for this passenger. If you were scheduled, click <strong>"Can\'t find your details?"</strong> below to open a request.',
     erroConexao: "We couldn't search right now. Please try again in a moment.",
     encontrados: "We found {n} passengers. Select yours:",
     mostrando: "Showing {a} of {b}. Type more of your name to narrow it down.",
@@ -633,27 +1499,95 @@ const TEXTOS = {
     referencia: "Landmark",
     endereco: "Stop Address",
     email: "Email",
-    maps: "📍 View stop on Google Maps",
+    maps: "View stop on Google Maps",
     voltarOpcoes: "← Back to options",
     ajuda: "Can't find your details? Click here",
-    atendimento: "Support",
-    atendimentoTexto: "Point your phone camera at the QR Code or click the link below.",
-    abrirAtendimento: "Open support",
-    fechar: "Close"
+    abaAbrir: "Open a request",
+    abaConsultar: "Track a request",
+    introAbrir: "Fill in the details below. When you send it, you get a <strong>protocol number</strong> to track your request.",
+    lTipo: "What is your request about?",
+    selecione: "Select...",
+    passo1: "Reason",
+    passo2: "Your details",
+    passo3: "Details",
+    p1Titulo: "How can we help?",
+    p1Sub: "Choose the reason for contacting us.",
+    p2Titulo: "Your contact details",
+    p3Titulo: "Tell us what happened",
+    voltar: "Back",
+    continuar: "Continue",
+    trocar: "Change",
+    editar: "Edit",
+    ouCole: "or paste the Google Maps link",
+    locAnexada: "Location attached",
+    resumoTitulo: "Check your details",
+    compartilhar: "Share",
+    textoCompartilhar: "My BYD support protocol: {p}",
+    lNome: "Full name",
+    lRoteiro: "Route <small>(if you know it)</small>",
+    phRoteiro: "E.g.: Linha 01 - Camaçari",
+    dTelefone: "Enter a phone/WhatsApp number we can contact.",
+    dEndereco: "Street, number, unit, neighborhood, city and ZIP code.",
+    dLocalizacao: "Paste the Google Maps link to your home, or tap “Use my location”.",
+    roteiro: "Route",
+    lTelefone: "Contact phone",
+    lEndereco: "Full home address",
+    lLocalizacao: "Home location <small>(optional)</small>",
+    usarLoc: "Use my location",
+    buscandoLoc: "Locating...",
+    locOk: "Location filled in",
+    locErro: "We couldn't get your location. Paste the Google Maps link manually.",
+    lDescricao: "Describe your request",
+    enviar: "Send request",
+    enviando: "Sending...",
+    corrija: "Please fill in the fields highlighted in red.",
+    erroEnvio: "We couldn't send it right now. Please try again in a moment.",
+    sucessoTitulo: "Request registered!",
+    sucessoTexto: "Keep this protocol number to track your request:",
+    copiar: "Copy protocol",
+    copiado: "Copied!",
+    acompanhar: "Track this request",
+    novoChamado: "Open another request",
+    introConsultar: "Type the <strong>protocol number</strong> you received when you opened the request.",
+    consultar: "Track",
+    recentes: "Requests opened on this device:",
+    protocoloInvalido: "Type the full protocol number.",
+    protocoloNaoEncontrado: "No request found with this protocol. Check the number you typed.",
+    status_recebido: "Received",
+    status_andamento: "In progress",
+    status_finalizado: "Closed",
+    etapa1: "Received",
+    etapa2: "In progress",
+    etapa3: "Closed",
+    blocoChamado: "Your request",
+    blocoAtendimento: "Support",
+    aberto: "Opened on",
+    solicitacao: "Request",
+    nomeChamado: "Name",
+    descricao: "Description",
+    atendente: "Handled by",
+    providencia: "Action taken",
+    finalizadoEm: "Closed on",
+    aguardando: "Waiting for our team to handle it."
   },
   zh: {
     htmlLang: "zh-CN",
     tituloPagina: "BYD 乘车信息",
     tituloPaginaHE: "BYD 加班班车",
+    tituloPaginaAt: "BYD 客服",
     hero: 'BYD <span>乘车信息</span>',
     heroHE: 'BYD <span>加班班车查询</span>',
+    heroAt: 'BYD <span>客服中心</span>',
     escolha: "请选择查询类型：",
     btnRoteiro: "日常路线查询",
     btnRoteiroSub: "您每天的线路、站点和时间",
     btnHE: "加班班车查询",
     btnHESub: "加班日的乘车信息",
-    selo: "🚌 日常路线",
-    seloHE: "⏱️ 加班",
+    btnAt: "客服",
+    btnAtSub: "提交工单或按工单号查询",
+    selo: "日常路线",
+    seloHE: "加班",
+    seloAt: "客服",
     inicio: "← 首页",
     avisoHE: "您正在查询<strong>加班班车</strong>信息。时间和站点可能与日常路线不同。",
     intro: "查询您的<strong>线路、站点和乘车时间</strong>。",
@@ -666,8 +1600,8 @@ const TEXTOS = {
     carregando: "加载中...",
     min3: "请至少输入姓名中的 3 个字母。",
     emailInvalido: "请输入有效的邮箱地址。",
-    nada: "未找到乘客。请检查输入内容，或点击下方的<strong>“找不到您的信息？”</strong>。",
-    nadaHE: "未找到该乘客的加班班车信息。如您已被安排加班，请点击下方的<strong>“找不到您的信息？”</strong>。",
+    nada: "未找到乘客。请检查输入内容，或点击下方的<strong>“找不到您的信息？”</strong>提交工单。",
+    nadaHE: "未找到该乘客的加班班车信息。如您已被安排加班，请点击下方的<strong>“找不到您的信息？”</strong>提交工单。",
     erroConexao: "暂时无法查询，请稍后再试。",
     encontrados: "找到 {n} 位乘客，请选择您本人：",
     mostrando: "共 {b} 条结果，显示前 {a} 条。请输入更完整的姓名以缩小范围。",
@@ -678,22 +1612,87 @@ const TEXTOS = {
     referencia: "参考地点",
     endereco: "站点地址",
     email: "邮箱",
-    maps: "📍 在谷歌地图中查看站点",
+    maps: "在谷歌地图中查看站点",
     voltarOpcoes: "← 返回选项",
     ajuda: "找不到您的信息？请点击这里",
-    atendimento: "客服",
-    atendimentoTexto: "请用手机相机扫描二维码，或点击下方链接。",
-    abrirAtendimento: "打开客服",
-    fechar: "关闭"
+    abaAbrir: "提交工单",
+    abaConsultar: "查询工单",
+    introAbrir: "请填写以下信息。提交后您将获得一个<strong>工单号</strong>，用于查询处理进度。",
+    lTipo: "您的需求是什么？",
+    selecione: "请选择...",
+    passo1: "原因",
+    passo2: "您的信息",
+    passo3: "详情",
+    p1Titulo: "我们能为您做什么？",
+    p1Sub: "请选择您联系我们的原因。",
+    p2Titulo: "您的联系信息",
+    p3Titulo: "请描述具体情况",
+    voltar: "返回",
+    continuar: "继续",
+    trocar: "更改",
+    editar: "修改",
+    ouCole: "或粘贴谷歌地图链接",
+    locAnexada: "已附上位置",
+    resumoTitulo: "请核对您的信息",
+    compartilhar: "分享",
+    textoCompartilhar: "我的 BYD 客服工单号：{p}",
+    lNome: "全名",
+    lRoteiro: "路线 <small>（如知道）</small>",
+    phRoteiro: "例如：Linha 01 - Camaçari",
+    dTelefone: "请填写可联系的电话/WhatsApp 号码。",
+    dEndereco: "街道、门牌号、补充信息、街区、城市和邮编。",
+    dLocalizacao: "请粘贴您住址的谷歌地图链接，或点击“使用我的位置”。",
+    roteiro: "路线",
+    lTelefone: "联系电话",
+    lEndereco: "完整住址",
+    lLocalizacao: "住址位置 <small>（可选）</small>",
+    usarLoc: "使用我的位置",
+    buscandoLoc: "定位中...",
+    locOk: "已填写位置",
+    locErro: "无法获取您的位置，请手动粘贴谷歌地图链接。",
+    lDescricao: "请描述您的需求",
+    enviar: "提交工单",
+    enviando: "提交中...",
+    corrija: "请填写红色标出的字段。",
+    erroEnvio: "暂时无法提交，请稍后再试。",
+    sucessoTitulo: "工单已提交！",
+    sucessoTexto: "请保存此工单号，用于查询处理进度：",
+    copiar: "复制工单号",
+    copiado: "已复制！",
+    acompanhar: "查询此工单",
+    novoChamado: "再提交一个工单",
+    introConsultar: "请输入您提交工单时获得的<strong>工单号</strong>。",
+    consultar: "查询",
+    recentes: "本设备提交过的工单：",
+    protocoloInvalido: "请输入完整的工单号。",
+    protocoloNaoEncontrado: "未找到该工单号对应的工单，请检查输入的号码。",
+    status_recebido: "已受理",
+    status_andamento: "处理中",
+    status_finalizado: "已完成",
+    etapa1: "已受理",
+    etapa2: "处理中",
+    etapa3: "已完成",
+    blocoChamado: "您的工单",
+    blocoAtendimento: "处理情况",
+    aberto: "提交时间",
+    solicitacao: "需求类型",
+    nomeChamado: "姓名",
+    descricao: "描述",
+    atendente: "处理人",
+    providencia: "处理措施",
+    finalizadoEm: "完成时间",
+    aguardando: "等待我们的团队处理。"
   }
 };
 
 let idioma = "pt";
-let tela = "inicio";   // inicio | roteiros | hora-extra
+let tela = "inicio";   // inicio | roteiros | hora-extra | atendimento
 let abaAtual = "nome";
+let abaAt = "abrir";
 let ultimosResultados = [];
 let totalResultados = 0;
-let renderAtual = null; // redesenha o resultado na tela quando o idioma muda
+let renderAtual = null;   // redesenha o resultado da consulta quando o idioma muda
+let renderAt = null;      // redesenha o resultado do atendimento quando o idioma muda
 
 function t(chave, vars) {
   let txt = (TEXTOS[idioma] || TEXTOS.pt)[chave] || TEXTOS.pt[chave] || "";
@@ -710,53 +1709,78 @@ function trocarIdioma(novo) {
 
 function aplicarIdioma() {
   const he = tela === "hora-extra";
+  const at = tela === "atendimento";
   document.documentElement.lang = t("htmlLang");
   document.querySelectorAll("[data-t]").forEach(el => { el.innerHTML = t(el.dataset.t); });
   document.querySelectorAll(".idiomas button").forEach(b =>
     b.classList.toggle("active", b.dataset.lang === idioma)
   );
-  document.getElementById("tituloHero").innerHTML = t(he ? "heroHE" : "hero");
-  document.getElementById("seloTexto").textContent = t(he ? "seloHE" : "selo");
+  document.getElementById("tituloHero").innerHTML = t(at ? "heroAt" : he ? "heroHE" : "hero");
+  document.getElementById("seloTexto").innerHTML = ic(he ? "clock" : "bus") + t(he ? "seloHE" : "selo");
   document.getElementById("introConsulta").innerHTML = t(he ? "introHE" : "intro");
   document.getElementById("campoNome").placeholder = t("phNome");
   document.getElementById("campoEmail").placeholder = t("phEmail");
-  document.title = t(he ? "tituloPaginaHE" : "tituloPagina");
+  document.getElementById("fRoteiro").placeholder = t("phRoteiro");
+  document.title = t(at ? "tituloPaginaAt" : he ? "tituloPaginaHE" : "tituloPagina");
+  renderWizard();
   if (renderAtual) renderAtual();
+  if (renderAt) renderAt();
 }
 
-/* NAVEGAÇÃO ENTRE PÁGINAS (usa #roteiros / #hora-extra na URL, o botão voltar do celular funciona) */
+/* NAVEGAÇÃO ENTRE PÁGINAS
+   #roteiros, #hora-extra, #atendimento e #atendimento/PROTOCOLO (abre a consulta do chamado) */
 function irPara(destino) {
-  location.hash = destino === "inicio" ? "" : destino;
-  if (destino === "inicio" && location.hash) history.replaceState(null, "", location.pathname);
-  mostrarTela();
+  const novo = destino === "inicio" ? "" : "#" + destino;
+  if (location.hash === novo) return mostrarTela();
+  if (!novo) {
+    history.pushState(null, "", location.pathname + location.search);
+    return mostrarTela();
+  }
+  location.hash = novo; // o evento hashchange chama mostrarTela
 }
 
 function mostrarTela() {
-  const hash = location.hash.replace("#", "");
-  tela = hash === "roteiros" || hash === "hora-extra" ? hash : "inicio";
+  const hash = decodeURIComponent(location.hash.replace("#", ""));
+  const partes = hash.split("/");
+  tela = ["roteiros", "hora-extra", "atendimento"].indexOf(partes[0]) > -1 ? partes[0] : "inicio";
   const he = tela === "hora-extra";
+  const at = tela === "atendimento";
 
   document.body.classList.toggle("tema-he", he);
+  document.body.classList.toggle("tema-at", at);
   document.getElementById("tela-inicio").classList.toggle("hidden", tela !== "inicio");
-  document.getElementById("tela-consulta").classList.toggle("hidden", tela === "inicio");
+  document.getElementById("tela-consulta").classList.toggle("hidden", tela !== "roteiros" && !he);
+  document.getElementById("tela-atendimento").classList.toggle("hidden", !at);
   document.getElementById("avisoHE").classList.toggle("hidden", !he);
+  document.getElementById("btnAjuda").classList.toggle("hidden", at);
 
   renderAtual = null;
   document.getElementById("resultado").innerHTML = "";
   document.getElementById("campoNome").value = "";
   document.getElementById("campoEmail").value = "";
+
+  if (at) {
+    if (partes[1]) {
+      trocarAbaAt("consultar");
+      document.getElementById("campoProtocolo").value = partes[1];
+      consultarChamado();
+    } else if (!document.getElementById("resultadoAt").innerHTML) {
+      trocarAbaAt(abaAt);
+    }
+  }
+
   aplicarIdioma();
   window.scrollTo(0, 0);
 }
 
 window.addEventListener("hashchange", mostrarTela);
 
-/* TROCA DE ABAS */
+/* TROCA DE ABAS DA CONSULTA */
 function trocarAba(aba) {
   abaAtual = aba;
   document.getElementById("aba-nome").classList.toggle("hidden", aba !== "nome");
   document.getElementById("aba-email").classList.toggle("hidden", aba !== "email");
-  document.querySelectorAll(".tabs button").forEach((b, i) =>
+  document.querySelectorAll("#tabsConsulta button").forEach((b, i) =>
     b.classList.toggle("active", (i === 0) === (aba === "nome"))
   );
   renderAtual = null;
@@ -764,14 +1788,54 @@ function trocarAba(aba) {
   document.getElementById(aba === "nome" ? "campoNome" : "campoEmail").focus();
 }
 
-/* ENTER PESQUISA */
+/* TROCA DE ABAS DO ATENDIMENTO */
+function trocarAbaAt(aba) {
+  abaAt = aba;
+  document.getElementById("at-abrir").classList.toggle("hidden", aba !== "abrir");
+  document.getElementById("at-consultar").classList.toggle("hidden", aba !== "consultar");
+  document.querySelectorAll("#tabsAt button").forEach((b, i) =>
+    b.classList.toggle("active", (i === 0) === (aba === "abrir"))
+  );
+  if (aba === "consultar") mostrarRecentes();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  pintarIcones();
+  irPasso(1, false);
+
+  /* ENTER PESQUISA */
   ["campoNome", "campoEmail"].forEach(id =>
     document.getElementById(id).addEventListener("keydown", e => {
       if (e.key === "Enter") buscar();
     })
   );
-  document.getElementById("linkAtendimento").href = LINK_ATENDIMENTO;
+  document.getElementById("campoProtocolo").addEventListener("keydown", e => {
+    if (e.key === "Enter") consultarChamado();
+  });
+
+  /* Máscara do telefone: (71) 99999-9999 */
+  document.getElementById("fTelefone").addEventListener("input", e => {
+    const d = e.target.value.replace(/\D/g, "").slice(0, 11);
+    let v = d;
+    if (d.length > 2) v = "(" + d.slice(0, 2) + ") " + d.slice(2);
+    if (d.length > 6) v = "(" + d.slice(0, 2) + ") " + d.slice(2, d.length - 4) + "-" + d.slice(-4);
+    e.target.value = v;
+  });
+
+  /* Contador de caracteres da descrição */
+  document.getElementById("fDescricao").addEventListener("input", e => {
+    document.getElementById("contador").textContent = e.target.value.length;
+  });
+
+  /* Tira o vermelho do campo assim que a pessoa corrige */
+  document.querySelectorAll("#formChamado .campo").forEach(c =>
+    c.addEventListener("input", () => {
+      c.classList.remove("erro");
+      const sec = c.closest(".wiz");
+      if (sec && !sec.querySelector(".campo.erro")) sec.querySelector(".msg-passo").innerHTML = "";
+    })
+  );
+
   try {
     const salvo = localStorage.getItem("portalBydIdioma");
     if (TEXTOS[salvo]) idioma = salvo;
@@ -796,15 +1860,23 @@ function esc(txt) {
   })[c]);
 }
 
+function chamarApi(corpo) {
+  return fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(corpo)
+  }).then(r => r.json());
+}
+
 /* Mostra uma mensagem traduzível no resultado */
 function mostrarMsg(chave) {
   renderAtual = () => {
-    document.getElementById("resultado").innerHTML = `<div class="msg">${t(chave)}</div>`;
+    document.getElementById("resultado").innerHTML = `<div class="msg fade">${t(chave)}</div>`;
   };
   renderAtual();
 }
 
-/* CONSULTA */
+/* CONSULTA DE ROTEIROS / HORA EXTRA */
 function buscar() {
   const resultado = document.getElementById("resultado");
   const loading = document.getElementById("loading");
@@ -820,16 +1892,11 @@ function buscar() {
   loading.style.display = "block";
   btn.disabled = true;
 
-  fetch(API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "text/plain;charset=utf-8" },
-    body: JSON.stringify({
-      consulta: tela === "hora-extra" ? "horaExtra" : "roteiros",
-      tipo: abaAtual,
-      termo
-    })
+  chamarApi({
+    consulta: tela === "hora-extra" ? "horaExtra" : "roteiros",
+    tipo: abaAtual,
+    termo
   })
-  .then(r => r.json())
   .then(dados => {
     if (!dados.ok) return mostrarMsg("erroConexao");
     ultimosResultados = dados.resultados;
@@ -858,13 +1925,15 @@ function mostrarOpcoes() {
     : "";
 
   document.getElementById("resultado").innerHTML = `
+    <div class="fade">
     <p class="aviso-opcoes">${t("encontrados", { n: totalResultados })}</p>
     ${ultimosResultados.map((p, i) => `
       <button class="opcao" onclick="mostrarCard(${i}, true)">
         <strong>${esc(p.nome)}</strong>
         <small>${t("linhaCurto")}: ${esc(p.linha) || "-"} · ${t("pontoCurto")}: ${esc(p.referencia) || "-"}</small>
       </button>`).join("")}
-    ${extra}`;
+    ${extra}
+    </div>`;
 }
 
 /* CARD DO PASSAGEIRO */
@@ -874,26 +1943,365 @@ function mostrarCard(i, comVoltar) {
   const maps = /^https?:\/\//i.test(p.maps) ? p.maps : "";
 
   document.getElementById("resultado").innerHTML = `
-    <div class="card">
+    <div class="card fade">
       ${tela === "hora-extra" ? `<span class="tag">${t("tag")}</span>` : ""}
       <h3>${esc(p.nome)}</h3>
-      ${p.hora ? `<div class="hora">🕒 ${esc(p.hora)}</div>` : ""}
+      ${p.hora ? `<div class="hora">${ic("clock")}${esc(p.hora)}</div>` : ""}
       <p><strong>${t("linha")}:</strong> ${esc(p.linha) || "-"}</p>
       <p><strong>${t("referencia")}:</strong> ${esc(p.referencia) || "-"}</p>
       <p><strong>${t("endereco")}:</strong> ${esc(p.endereco) || "-"}</p>
       <p><strong>${t("email")}:</strong> ${esc(p.email) || "-"}</p>
-      ${maps ? `<a class="maps" href="${esc(maps)}" target="_blank" rel="noopener">${t("maps")}</a>` : ""}
+      ${maps ? `<a class="maps" href="${esc(maps)}" target="_blank" rel="noopener">${ic("pin")}${t("maps")}</a>` : ""}
     </div>
     ${comVoltar ? `<button class="voltar" onclick="mostrarOpcoes()">${t("voltarOpcoes")}</button>` : ""}`;
 }
 
-/* MODAL ATENDIMENTO */
+/* BOTÃO "NÃO ENCONTROU SEUS DADOS?" LEVA AO ATENDIMENTO,
+   já com o motivo "Não localizei meu roteiro" escolhido */
 function abrirAjuda() {
-  document.getElementById("modalAjuda").classList.remove("hidden");
+  abaAt = "abrir";
+  if (!document.getElementById("sucessoChamado").classList.contains("hidden")) novoChamado();
+  tipoSel = TIPOS_SOLICITACAO.findIndex(o => o.icone === "bus");
+  irPara("atendimento");
+  trocarAbaAt("abrir");
+  irPasso(2);
 }
 
-function fecharAjuda() {
-  document.getElementById("modalAjuda").classList.add("hidden");
+/* ================= ATENDIMENTO ================= */
+
+let tipoSel = -1;   // motivo escolhido no passo 1
+let passo = 1;      // passo atual do formulário
+
+function tituloTipo(o) {
+  return (o[idioma] || o.pt)[0];
+}
+
+function renderTipos() {
+  document.getElementById("tipos").innerHTML = TIPOS_SOLICITACAO.map((o, i) => {
+    const txt = o[idioma] || o.pt;
+    const sel = i === tipoSel;
+    return `
+      <button type="button" class="tipo ${sel ? "sel" : ""}" style="--cor:${o.cor};--fundo:${o.fundo}" role="radio"
+              aria-checked="${sel}" onclick="escolherTipo(${i})">
+        <span class="tipo-ic">${ic(o.icone)}</span>
+        <span class="tipo-txt"><strong>${esc(txt[0])}</strong><small>${esc(txt[1])}</small></span>
+        <span class="tipo-seta">${ic(sel ? "check" : "chev")}</span>
+      </button>`;
+  }).join("");
+}
+
+function renderEscolhido() {
+  const o = TIPOS_SOLICITACAO[tipoSel];
+  document.querySelectorAll("[data-escolhido]").forEach(el => {
+    el.style.setProperty("--cor", o ? o.cor : "#64748b");
+    el.style.setProperty("--fundo", o ? o.fundo : "#f1f5f9");
+    el.innerHTML = o ? `
+      <span class="tipo-ic">${ic(o.icone)}</span>
+      <span class="tipo-escolhido-txt"><small>${t("passo1")}</small>${esc(tituloTipo(o))}</span>
+      <button type="button" onclick="irPasso(1)">${t("trocar")}</button>` : "";
+  });
+}
+
+function renderResumo() {
+  const v = id => esc(document.getElementById(id).value.trim());
+  const linha = (icone, valor) => valor ? `<div>${ic(icone)}<span>${valor}</span></div>` : "";
+  document.getElementById("resumo").innerHTML = `
+    <div class="resumo-topo"><strong>${t("resumoTitulo")}</strong>
+      <button type="button" onclick="irPasso(2)">${t("editar")}</button></div>
+    ${linha("user", v("fNome"))}
+    ${linha("bus", v("fRoteiro"))}
+    ${linha("phone", v("fTelefone"))}
+    ${linha("home", v("fEndereco"))}
+    ${linha("pin", document.getElementById("fLocalizacao").value.trim() ? t("locAnexada") : "")}`;
+}
+
+/* Redesenha o formulário quando o idioma muda */
+function renderWizard() {
+  renderTipos();
+  renderEscolhido();
+  if (passo === 3) renderResumo();
+}
+
+function escolherTipo(i) {
+  tipoSel = i;
+  renderTipos();
+  renderEscolhido();
+  setTimeout(() => irPasso(2), 250);
+}
+
+function irPasso(n, rolar = true) {
+  if (n > 1 && tipoSel < 0) n = 1;
+  passo = n;
+  document.querySelectorAll("#formChamado .wiz").forEach(s =>
+    s.classList.toggle("hidden", Number(s.dataset.p) !== n)
+  );
+  document.querySelectorAll("#formChamado .wiz-passo").forEach(p => {
+    const k = Number(p.dataset.p);
+    p.classList.toggle("ativo", k === n);
+    p.classList.toggle("feito", k < n);
+    p.querySelector(".n").innerHTML = k < n ? ic("check") : k;
+  });
+  document.getElementById("wizBarra").style.width = ((n - 1) / 2 * 100) + "%";
+  const sec = document.querySelector(`#formChamado .wiz[data-p="${n}"]`);
+  sec.classList.remove("entrar");
+  void sec.offsetWidth; // reinicia a animação
+  sec.classList.add("entrar");
+  renderEscolhido();
+  if (n === 3) renderResumo();
+  if (rolar) document.getElementById("formChamado").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function marcarErros(ids, msgId) {
+  document.querySelectorAll("#formChamado .campo").forEach(c => c.classList.remove("erro"));
+  const msg = document.getElementById(msgId);
+  if (!ids.length) { msg.innerHTML = ""; return true; }
+  ids.forEach(id => {
+    const c = document.getElementById(id);
+    c.classList.add("erro");
+    c.classList.remove("tremer");
+    void c.offsetWidth;
+    c.classList.add("tremer");
+  });
+  document.getElementById(ids[0]).scrollIntoView({ behavior: "smooth", block: "center" });
+  msg.innerHTML = `<div class="msg fade">${t("corrija")}</div>`;
+  return false;
+}
+
+function errosPasso2() {
+  const v = id => document.getElementById(id).value.trim();
+  const erros = [];
+  if (v("fNome").split(/\s+/).length < 2) erros.push("c-nome");
+  if (v("fTelefone").replace(/\D/g, "").length < 10) erros.push("c-telefone");
+  if (v("fEndereco").length < 5) erros.push("c-endereco");
+  if (v("fLocalizacao") && !/^https?:\/\//i.test(v("fLocalizacao"))) erros.push("c-localizacao");
+  return erros;
+}
+
+function avancar() {
+  if (marcarErros(errosPasso2(), "msgP2")) irPasso(3);
+}
+
+/* Preenche o link do Google Maps com a localização do celular */
+function usarLocalizacao() {
+  const btn = document.getElementById("btnLoc");
+  const txt = document.getElementById("btnLocTxt");
+  const ok = document.getElementById("locOk");
+  if (!navigator.geolocation) return alert(t("locErro"));
+  btn.disabled = true;
+  btn.classList.add("buscando");
+  txt.textContent = t("buscandoLoc");
+  const fim = () => {
+    btn.disabled = false;
+    btn.classList.remove("buscando");
+    txt.textContent = t("usarLoc");
+  };
+  navigator.geolocation.getCurrentPosition(pos => {
+    const { latitude, longitude } = pos.coords;
+    document.getElementById("fLocalizacao").value =
+      "https://www.google.com/maps?q=" + latitude.toFixed(6) + "," + longitude.toFixed(6);
+    document.getElementById("c-localizacao").classList.remove("erro");
+    ok.classList.remove("hidden");
+    fim();
+  }, () => {
+    alert(t("locErro"));
+    fim();
+  }, { enableHighAccuracy: true, timeout: 15000 });
+}
+
+function enviarChamado(ev) {
+  ev.preventDefault();
+  if (tipoSel < 0) return irPasso(1);
+  if (errosPasso2().length) { irPasso(2); return avancar(); }
+
+  const btn = document.getElementById("btnEnviar");
+  const txt = document.getElementById("btnEnviarTxt");
+  const d = {
+    tipo: TIPOS_SOLICITACAO[tipoSel].valor,
+    nome: document.getElementById("fNome").value.trim(),
+    roteiro: document.getElementById("fRoteiro").value.trim(),
+    telefone: document.getElementById("fTelefone").value.trim(),
+    endereco: document.getElementById("fEndereco").value.trim(),
+    localizacao: document.getElementById("fLocalizacao").value.trim(),
+    descricao: document.getElementById("fDescricao").value.trim(),
+    site: document.getElementById("fSite").value
+  };
+
+  if (!marcarErros(d.descricao.length < 5 ? ["c-descricao"] : [], "msgAbrir")) return;
+
+  btn.disabled = true;
+  btn.classList.add("enviando");
+  txt.textContent = t("enviando");
+
+  chamarApi(Object.assign({ acao: "abrirChamado" }, d))
+    .then(r => {
+      if (!r.ok || !r.protocolo) throw new Error(r.erro || "erro");
+      guardarProtocolo(r.protocolo);
+      mostrarSucesso(r.protocolo);
+    })
+    .catch(() => {
+      document.getElementById("msgAbrir").innerHTML = `<div class="msg fade">${t("erroEnvio")}</div>`;
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.classList.remove("enviando");
+      txt.textContent = t("enviar");
+    });
+}
+
+function mostrarSucesso(protocolo) {
+  const box = document.getElementById("sucessoChamado");
+  document.getElementById("formChamado").classList.add("hidden");
+  box.classList.remove("hidden");
+  const p = esc(protocolo);
+  renderAt = () => {
+    box.innerHTML = `
+      <div class="sucesso">
+        <svg class="check-anim" viewBox="0 0 52 52" aria-hidden="true">
+          <circle cx="26" cy="26" r="24" fill="none"/>
+          <path fill="none" d="M15 27l7 7 15-15"/>
+        </svg>
+        <h3>${t("sucessoTitulo")}</h3>
+        <p>${t("sucessoTexto")}</p>
+        <div class="protocolo">${p}</div>
+        <div class="acoes">
+          <div class="acoes-linha">
+            <button id="btnCopiar" class="btn-sec" onclick="copiarProtocolo('${p}')">${ic("copy")}<span>${t("copiar")}</span></button>
+            ${navigator.share ? `<button class="btn-sec" onclick="compartilharProtocolo('${p}')">${ic("share")}<span>${t("compartilhar")}</span></button>` : ""}
+          </div>
+          <button onclick="irPara('atendimento/${p}')">${ic("search")}<span>${t("acompanhar")}</span></button>
+          <button class="link-btn" onclick="novoChamado()">${t("novoChamado")}</button>
+        </div>
+      </div>`;
+  };
+  renderAt();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function copiarProtocolo(protocolo) {
+  const feito = () => {
+    const b = document.getElementById("btnCopiar");
+    if (b) {
+      b.innerHTML = ic("check") + `<span>${t("copiado")}</span>`;
+      b.classList.add("ok");
+    }
+  };
+  if (navigator.clipboard) navigator.clipboard.writeText(protocolo).then(feito).catch(() => prompt("", protocolo));
+  else prompt("", protocolo);
+}
+
+function compartilharProtocolo(protocolo) {
+  const url = location.origin + location.pathname + "#atendimento/" + protocolo;
+  navigator.share({ title: t("tituloPaginaAt"), text: t("textoCompartilhar", { p: protocolo }), url }).catch(() => {});
+}
+
+function novoChamado() {
+  renderAt = null;
+  tipoSel = -1;
+  document.getElementById("formChamado").reset();
+  document.getElementById("contador").textContent = "0";
+  document.getElementById("locOk").classList.add("hidden");
+  document.getElementById("sucessoChamado").classList.add("hidden");
+  document.getElementById("sucessoChamado").innerHTML = "";
+  document.getElementById("formChamado").classList.remove("hidden");
+  renderTipos();
+  irPasso(1);
+}
+
+/* Protocolos abertos neste aparelho (atalho para consultar) */
+function lerProtocolos() {
+  try { return JSON.parse(localStorage.getItem("portalBydProtocolos") || "[]"); } catch (e) { return []; }
+}
+
+function guardarProtocolo(p) {
+  const lista = [p].concat(lerProtocolos().filter(x => x !== p)).slice(0, 5);
+  try { localStorage.setItem("portalBydProtocolos", JSON.stringify(lista)); } catch (e) {}
+}
+
+function mostrarRecentes() {
+  const lista = lerProtocolos();
+  document.getElementById("recentes").classList.toggle("hidden", !lista.length);
+  document.getElementById("chips").innerHTML = lista.map(p =>
+    `<button onclick="consultarProtocolo('${esc(p)}')">${esc(p)}</button>`
+  ).join("");
+}
+
+function consultarProtocolo(p) {
+  document.getElementById("campoProtocolo").value = p;
+  consultarChamado();
+}
+
+function msgAt(chave) {
+  renderAt = () => {
+    document.getElementById("resultadoAt").innerHTML = `<div class="msg fade">${t(chave)}</div>`;
+  };
+  renderAt();
+}
+
+function consultarChamado() {
+  const campo = document.getElementById("campoProtocolo");
+  const btn = document.getElementById("btnConsultarAt");
+  const protocolo = campo.value.toUpperCase().replace(/\s/g, "");
+  campo.value = protocolo;
+
+  if (protocolo.length < 8) return msgAt("protocoloInvalido");
+
+  renderAt = null;
+  document.getElementById("resultadoAt").innerHTML = "";
+  btn.disabled = true;
+  btn.innerHTML = `<span class="spinner"></span>${t("carregando")}`;
+
+  chamarApi({ acao: "consultarChamado", protocolo })
+    .then(r => {
+      if (!r.ok) return msgAt("erroConexao");
+      if (!r.chamado) return msgAt("protocoloNaoEncontrado");
+      renderAt = () => desenharChamado(r.chamado);
+      renderAt();
+    })
+    .catch(() => msgAt("erroConexao"))
+    .finally(() => {
+      btn.disabled = false;
+      btn.innerHTML = t("consultar");
+    });
+}
+
+function desenharChamado(c) {
+  const etapa = c.status === "finalizado" ? 3 : c.status === "andamento" ? 2 : 1;
+  const etapas = [1, 2, 3].map(n => `
+    <div class="etapa ${n <= etapa ? "feita" : ""}">
+      <div class="bola">${n < etapa || etapa === 3 ? ic("check") : n}</div>${t("etapa" + n)}
+    </div>`).join("");
+
+  const tipo = TIPOS_SOLICITACAO.find(o => o.valor === c.tipo);
+
+  document.getElementById("resultadoAt").innerHTML = `
+    <div class="card fade">
+      <div class="chamado-topo">
+        <h3>${esc(c.protocolo)}</h3>
+        <span class="status ${esc(c.status)}">${t("status_" + c.status)}</span>
+      </div>
+      <div class="etapas">${etapas}</div>
+
+      <div class="bloco">
+        <h4>${t("blocoChamado")}</h4>
+        <p><strong>${t("aberto")}:</strong> ${esc(c.abertura) || "-"}</p>
+        ${tipo
+          ? `<div class="chamado-tipo" style="--cor:${tipo.cor};--fundo:${tipo.fundo}"><span class="tipo-ic">${ic(tipo.icone)}</span>${esc(tituloTipo(tipo))}</div>`
+          : `<p><strong>${t("solicitacao")}:</strong> ${esc(c.tipo) || "-"}</p>`}
+        <p><strong>${t("nomeChamado")}:</strong> ${esc(c.nome) || "-"}</p>
+        ${c.roteiro ? `<p><strong>${t("roteiro")}:</strong> ${esc(c.roteiro)}</p>` : ""}
+        <p><strong>${t("descricao")}:</strong></p>
+        <p class="descricao">${esc(c.descricao) || "-"}</p>
+      </div>
+
+      <div class="bloco">
+        <h4>${t("blocoAtendimento")}</h4>
+        ${c.status === "recebido" ? `<p class="pendente">${t("aguardando")}</p>` : `
+          <p><strong>${t("atendente")}:</strong> ${esc(c.atendente) || "-"}</p>
+          <p><strong>${t("providencia")}:</strong> ${esc(c.providencia) || "-"}</p>
+          <p><strong>${t("finalizadoEm")}:</strong> ${c.finalizado ? esc(c.finalizado) : `<span class="pendente">${t("status_andamento")}</span>`}</p>
+        `}
+      </div>
+    </div>`;
 }
 </script>
 
