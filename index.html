@@ -1281,8 +1281,11 @@ button .ic:last-child:not(:first-child) { margin: 0 0 0 6px; }
 <footer>Grupo Brasileiro · Cidade Sol</footer>
 
 <script>
-/* Cole aqui a URL do Web App publicado no Apps Script (termina em /exec) */
+/* URLs dos Web Apps publicados no Apps Script (terminam em /exec) */
+/* Planilha de passageiros: roteiros diários e horas extras */
 const API_URL = "https://script.google.com/macros/s/AKfycbxlaICeFIas-kUecB4SCtBIadZwIXfTTrX65xjXmRq2gG3WS2ug_8-p09DvBBFKOial/exec";
+/* Planilha de atendimento: abrir e consultar chamados */
+const API_ATENDIMENTO_URL = "https://script.google.com/macros/s/AKfycbx5fqKleunMF0wTJYle8ZU8UmxM-nz86TgKteZhtqHcLFJ9psXAYbwuJ96NCyQpGtip/exec";
 
 /* Opções de "Qual é a sua solicitação?".
    "valor" é exatamente o texto que vai para a planilha (igual ao Google Forms).
@@ -1860,8 +1863,8 @@ function esc(txt) {
   })[c]);
 }
 
-function chamarApi(corpo) {
-  return fetch(API_URL, {
+function chamarApi(corpo, url = API_URL) {
+  return fetch(url, {
     method: "POST",
     headers: { "Content-Type": "text/plain;charset=utf-8" },
     body: JSON.stringify(corpo)
@@ -2132,7 +2135,7 @@ function enviarChamado(ev) {
   btn.classList.add("enviando");
   txt.textContent = t("enviando");
 
-  chamarApi(Object.assign({ acao: "abrirChamado" }, d))
+  chamarApi(Object.assign({ acao: "abrirChamado" }, d), API_ATENDIMENTO_URL)
     .then(r => {
       if (!r.ok || !r.protocolo) throw new Error(r.erro || "erro");
       guardarProtocolo(r.protocolo);
@@ -2250,7 +2253,7 @@ function consultarChamado() {
   btn.disabled = true;
   btn.innerHTML = `<span class="spinner"></span>${t("carregando")}`;
 
-  chamarApi({ acao: "consultarChamado", protocolo })
+  chamarApi({ acao: "consultarChamado", protocolo }, API_ATENDIMENTO_URL)
     .then(r => {
       if (!r.ok) return msgAt("erroConexao");
       if (!r.chamado) return msgAt("protocoloNaoEncontrado");
