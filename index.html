@@ -1868,7 +1868,14 @@ function chamarApi(corpo, url = API_URL) {
     method: "POST",
     headers: { "Content-Type": "text/plain;charset=utf-8" },
     body: JSON.stringify(corpo)
-  }).then(r => r.json());
+  }).then(r => r.text()).then(txt => {
+    try { return JSON.parse(txt); }
+    catch (e) {
+      // o Google devolveu uma página (login, autorização ou erro) no lugar do JSON
+      console.error("Resposta não-JSON do Apps Script:", txt.slice(0, 500));
+      throw new Error("Resposta inválida do servidor (a implantação do Apps Script precisa ser conferida).");
+    }
+  });
 }
 
 /* Mostra uma mensagem traduzível no resultado */
@@ -2137,12 +2144,15 @@ function enviarChamado(ev) {
 
   chamarApi(Object.assign({ acao: "abrirChamado" }, d), API_ATENDIMENTO_URL)
     .then(r => {
-      if (!r.ok || !r.protocolo) throw new Error(r.erro || "erro");
+      if (!r.ok || !r.protocolo) throw new Error(r.erro || "sem protocolo na resposta");
       guardarProtocolo(r.protocolo);
       mostrarSucesso(r.protocolo);
     })
-    .catch(() => {
-      document.getElementById("msgAbrir").innerHTML = `<div class="msg fade">${t("erroEnvio")}</div>`;
+    .catch(err => {
+      // mostra o motivo real embaixo da mensagem padrão (ajuda a descobrir o que falhou)
+      console.error("abrirChamado falhou:", err);
+      const motivo = err && err.message ? `<br><small style="opacity:.75">${esc(err.message)}</small>` : "";
+      document.getElementById("msgAbrir").innerHTML = `<div class="msg fade">${t("erroEnvio")}${motivo}</div>`;
     })
     .finally(() => {
       btn.disabled = false;
